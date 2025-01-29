@@ -1,6 +1,316 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q95C5JEVQK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q95C5JEVQK');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rabina Maharjan - The Inspired Beauty</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      /* ==================== Global & Base Styles ==================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        min-height: 100vh;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        padding-bottom: 120px; /* room for footer */
+        animation: bgGradient 12s ease infinite alternate;
+      }
+      @keyframes bgGradient {
+        0% {
+          background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        }
+        50% {
+          background: linear-gradient(135deg, #ffc3a0, #ffafbd);
+        }
+        100% {
+          background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        }
+      }
+
+      header {
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        font-size: 2.2rem;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+      }
+      header h2 {
+        font-size: 1.2rem;
+        color: #ffe7e7;
+        margin-top: 8px;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 600px;
+        margin: 30px auto 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        backdrop-filter: blur(4px);
+        animation: fadeIn 1.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .profile-img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid #e91e63;
+        margin: 10px auto;
+        display: block;
+        object-fit: cover;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        animation: floatImg 3s ease-in-out infinite alternate;
+      }
+      /* A gentle float/bounce effect */
+      @keyframes floatImg {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .intro {
+        margin-top: 10px;
+      }
+      .intro h2 {
+        color: #d81b60;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+      .intro p {
+        color: #444;
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .contact-details {
+        margin-top: 20px;
+      }
+      .contact-details p {
+        font-size: 1rem;
+        margin: 5px 0;
+      }
+
+      /* =========== Action Buttons =========== */
+      .action-buttons {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .action-buttons a {
+        background-color: #e91e63;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .action-buttons a:hover {
+        background-color: #d81b60;
+        transform: translateY(-3px);
+      }
+
+      /* ================ Footer ================ */
+      footer {
+        background-color: #2c3e50;
+        color: #fff;
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 16px;
+        box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+      footer a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* ================ Modal ================ */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 300px;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+      }
+      .close {
+        color: #aaa;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+      }
+      .qr-img {
+        width: 80%;
+        height: auto;
+        margin-top: 10px;
+      }
+    </style>
 </head>
 <body>
+    <header>
+      <h1>The Inspired Beauty</h1>
+   
+      <img src="logo.jpeg" alt="Rabina's Photo" class="profile-img" />
+      <h2>by Rabina Maharjan</h2>
+    </header>
+
+    <div class="container">
+      <img src="profile.png" alt="Rabina's Photo" class="profile-img" />
+      
+      <div class="intro">
+        <h2>Rabina Maharjan</h2>
+        <p><strong>Owner / Beauty Therapist</strong></p>
+      </div>
+      <div class="contact-details">
+        <p>Email: <a href="mailto:inspiredbeauty2024@gmail.com" style="color:#e91e63; text-decoration:none">inspiredbeauty2024@gmail.com</a></p>
+        <p>Christchurch, New Zealand</p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="tel:+64272147693"><i class="fas fa-phone"></i> Call</a>
+        <a href="sms:+64272147693"><i class="fas fa-sms"></i> SMS</a>
+        <a href="https://wa.me/64272147693"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/theinspired_beauty/"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+
+    <!-- Footer (Same as previous structure) -->
+    <footer>
+      <b>
+        <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;">
+            <i class="fas fa-tools"></i> By
+          </a>
+      
+        <button onclick="saveContact()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">
+          <i class="fas fa-save"></i> <b>Save My Contact</b>
+        </button>
+        <a href="#" onclick="showModal()" style="color: #fff; text-decoration: none; margin-right: 20px;">
+            <i class="fas fa-qrcode"></i>QR
+          </a>
+      </b>
+    </footer>
+
+    <!-- QR Modal -->
+    <div id="qrModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="qr.png" alt="QR Code" class="qr-img" />
+        <p>Thank you for sharing :)</p>
+      </div>
+    </div>
+
+    <script>
+      function showModal() {
+        document.getElementById("qrModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("qrModal").style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target === document.getElementById("qrModal")) {
+          closeModal();
+        }
+      }
+
+      function saveContact() {
+        var vCardData = "BEGIN:VCARD\\n" +
+          "VERSION:3.0\\n" +
+          "FN:Rabina Maharjan\\n" +
+          "ORG:Inspired Beauty\\n" +
+          "TITLE:Owner / Beauty Therapist\\n" +
+          "TEL;TYPE=CELL,VOICE:+64272147693\\n" +
+          "EMAIL;TYPE=PREF,INTERNET:inspiredbeauty2024@gmail.com\\n" +
+          "ADR:Christchurch, New Zealand\\n" +
+          "URL;TYPE=WORK:https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/\\n" +
+          "URL;TYPE=WORK:https://www.instagram.com/theinspired_beauty/\\n" +
+          "END:VCARD";
+
+        var blob = new Blob([vCardData], { type: "text/vcard" });
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = "RabinaMaharjan.vcf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
 </body>
 </html>
