@@ -113,18 +113,22 @@
       }
     
       .action-buttons a {
-        background-color: #f1c40f; /* Gold */
-        color: #000;
-        padding: 10px 16px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 0.95rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.3s;
-        box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
-      }
+    background-color: #f1c40f; /* Gold */
+    color: #000;
+    padding: 12px 20px; /* Increased padding for better symmetry */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem; /* Slightly bigger for readability */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin:10px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+    justify-content: center; /* Centers text & icon */
+    min-width: 160px; /* Ensures equal button width */
+}
+
       .action-buttons a:hover {
         background-color: #d4ac0d; /* Deeper Gold */
         transform: translateY(-3px);
@@ -147,7 +151,50 @@
         color: #f1c40f;
         text-decoration: none;
       }
-    
+    /* Collapsible Button */
+.collapsible {
+    background-color: #f1c40f;
+    color: black;
+    cursor: pointer;
+    padding: 12px 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.collapsible:hover {
+    background-color: #d4ac0d;
+}
+
+.content {
+    display: none;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+/* Copy Button */
+.copy-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.copy-btn:hover {
+    background-color: #c0392b;
+}
+
       /* ================ Modal ================ */
       .modal {
         display: none;
@@ -211,6 +258,29 @@
         
         <b><p>Christchurch, New Zealand</p></b>
       </div>
+      <!-- Collapsible About Me Section -->
+<div class="about-me">
+  <button class="collapsible">About Me</button>
+  <div class="content" style="color:#2d2d2d;">
+      <h2>Hi beautiful,</h2>
+      <h3>I am RABINA</h3>
+      <h4>I am a Certified Beauty Therapist & Skin Educator with over 10 years of experience in the industry.</h4>
+      <h4>I specialize in skincare, body waxing, dermaplaning & brow lamination, face threading or waxing, lash lifting & tinting.</h4>
+      <h4>I am passionate about meeting and helping my clients feel confident and beautiful. I would love to help you achieve your beauty goals.</h4>
+      <h4>Please feel free to reach out if you have any questions or if you'd like to book a session. Thank you for your time, and I look forward to meeting you.</h4>
+  </div>
+</div>
+
+      <!-- Collapsible Bank Details -->
+<div class="bank-details">
+  <button class="collapsible">View Bank Details</button>
+  <div class="content" style="color:#2d2d2d;">
+      <p><b>Account Holder: <br> Rabina Maharjan <br> </b><button class="copy-btn" onclick="copyToClipboard('Rabina Maharjan', this)">Copy Name</button></p>
+      <p><b>Account Number: <br>03-1399-0661269-000 <br></b><button class="copy-btn" onclick="copyToClipboard('03-1399-0661269-000', this)">Copy A/C Number</button></p>
+      <p><b>Account Type:<br> Westpac Everyday <br></b><button class="copy-btn" onclick="copyToClipboard('Westpac Everyday', this)">Copy Bank Name</button></p>
+  </div>
+</div>
+
 
       <!-- Action Buttons -->
       <div class="action-buttons">
@@ -221,7 +291,8 @@
                
         <a href="https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/"><i class="fab fa-facebook"></i> Facebook</a>
         <a href="https://www.instagram.com/theinspired_beauty/"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="mailto:inspiredbeauty2024@gmail.com"><i class="fab fa-email"></i> Email </a> 
+        <a href="mailto:inspiredbeauty2024@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+
       </b>
       </div>
     </div>
@@ -289,6 +360,26 @@ END:VCARD`;
     link.click();
     document.body.removeChild(link);
 }
+// Collapsible Feature
+// Fix: Apply event listener to all collapsible buttons
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".collapsible").forEach(button => {
+        button.addEventListener("click", function() {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+            content.style.display = (content.style.display === "block") ? "none" : "block";
+        });
+    });
+});
+
+// Copy to Clipboard with Feedback
+function copyToClipboard(text, button) {
+    navigator.clipboard.writeText(text).then(() => {
+        button.innerText = "Copied!";
+        setTimeout(() => button.innerText = "Copy Again", 1500);
+    }).catch(err => console.error("Failed to copy:", err));
+}
+
 
     </script>
 </body>
