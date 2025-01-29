@@ -24,114 +24,92 @@
         padding: 0;
         box-sizing: border-box;
       }
-
+    
       body {
         font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        background: linear-gradient(135deg, #000000, #2d2d2d); /* Black gradient */
         min-height: 100vh;
-        color: #333;
+        color: #f1c40f; /* Gold Text */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         text-align: center;
-        padding-bottom: 120px; /* room for footer */
+        padding-bottom: 120px;
         animation: bgGradient 12s ease infinite alternate;
       }
       @keyframes bgGradient {
-        0% {
-          background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-        }
-        50% {
-          background: linear-gradient(135deg, #ffc3a0, #ffafbd);
-        }
-        100% {
-          background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-        }
+        0% { background: linear-gradient(135deg, #000000, #2d2d2d); }
+        50% { background: linear-gradient(135deg, #2d2d2d, #000000); }
+        100% { background: linear-gradient(135deg, #000000, #2d2d2d); }
       }
-
+    
       header {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(255, 215, 0, 0.2); /* Gold tint */
         width: 100%;
         padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(255, 215, 0, 0.5);
       }
       header h1 {
         font-size: 2.2rem;
-        color: #fff;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        color: #f1c40f; /* Gold */
+        text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.5);
       }
       header h2 {
         font-size: 1.2rem;
-        color: #ffe7e7;
+        color: #f7dc6f; /* Lighter Gold */
         margin-top: 8px;
       }
-
+    
       .container {
         width: 90%;
         max-width: 600px;
         margin: 30px auto 0;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(238, 222, 222, 0.836);
         border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
         padding: 20px;
         backdrop-filter: blur(4px);
         animation: fadeIn 1.5s ease-in-out;
       }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
+    
       .profile-img {
         width: 140px;
         height: 140px;
         border-radius: 50%;
-        border: 4px solid #e91e63;
+        border: 4px solid #f1c40f; /* Gold Border */
         margin: 10px auto;
         display: block;
         object-fit: cover;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
         animation: floatImg 3s ease-in-out infinite alternate;
       }
-      /* A gentle float/bounce effect */
+    
       @keyframes floatImg {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-8px);
-        }
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
       }
-
-      .intro {
-        margin-top: 10px;
-      }
+    
       .intro h2 {
-        color: #d81b60;
+        color: #141000; /* Gold */
         font-size: 1.8rem;
         margin-bottom: 10px;
       }
       .intro p {
-        color: #444;
+        color: #141000; /* Lighter Gold */
         font-size: 1rem;
         margin-bottom: 8px;
       }
-
+    
       .contact-details {
         margin-top: 20px;
       }
       .contact-details p {
         font-size: 1rem;
         margin: 5px 0;
+        color: #141000; /* Gold */
       }
-
+    
       /* =========== Action Buttons =========== */
       .action-buttons {
         margin-top: 20px;
@@ -140,10 +118,10 @@
         justify-content: center;
         gap: 10px;
       }
-
+    
       .action-buttons a {
-        background-color: #e91e63;
-        color: #fff;
+        background-color: #f1c40f; /* Gold */
+        color: #000;
         padding: 10px 16px;
         border-radius: 8px;
         text-decoration: none;
@@ -152,31 +130,31 @@
         align-items: center;
         gap: 8px;
         transition: all 0.3s;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
       }
       .action-buttons a:hover {
-        background-color: #d81b60;
+        background-color: #d4ac0d; /* Deeper Gold */
         transform: translateY(-3px);
       }
-
+    
       /* ================ Footer ================ */
       footer {
-        background-color: #2c3e50;
-        color: #fff;
+        background-color: #5e150cf8;
+        color: #f1c40f;
         width: 100%;
         padding: 15px 0;
         text-align: center;
         font-size: 16px;
-        box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 -2px 4px rgba(255, 215, 0, 0.2);
         position: fixed;
         bottom: 0;
         left: 0;
       }
       footer a {
-        color: #fff;
+        color: #f1c40f;
         text-decoration: none;
       }
-
+    
       /* ================ Modal ================ */
       .modal {
         display: none;
@@ -187,20 +165,20 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(243, 210, 20, 0.6);
       }
       .modal-content {
-        background-color: #fff;
+        background-color: #d8f5a2;
+        color: #f1c40f;
         margin: 15% auto;
         padding: 20px;
-        border: 1px solid #888;
+        border: 1px solid #f1c40f;
         width: 300px;
         border-radius: 10px;
-        position: relative;
         text-align: center;
       }
       .close {
-        color: #aaa;
+        color: #f1c40f;
         position: absolute;
         top: 10px;
         right: 20px;
@@ -210,7 +188,7 @@
       }
       .close:hover,
       .close:focus {
-        color: #000;
+        color: #d4ac0d;
         text-decoration: none;
       }
       .qr-img {
@@ -219,6 +197,7 @@
         margin-top: 10px;
       }
     </style>
+    
 </head>
 <body>
     <header>
@@ -236,15 +215,17 @@
         <p><strong>Owner / Beauty Therapist</strong></p>
       </div>
       <div class="contact-details">
-        <p>Email: <a href="mailto:inspiredbeauty2024@gmail.com" style="color:#e91e63; text-decoration:none">inspiredbeauty2024@gmail.com</a></p>
+        
         <p>Christchurch, New Zealand</p>
       </div>
 
       <!-- Action Buttons -->
       <div class="action-buttons">
-        <a href="tel:+64272147693"><i class="fas fa-phone"></i> Call</a>
-        <a href="sms:+64272147693"><i class="fas fa-sms"></i> SMS</a>
+        <a href="tel:+64275022825"><i class="fas fa-phone"></i> Call</a>
+        <a href="sms:+64275022825"><i class="fas fa-sms"></i> SMS</a>
         <a href="https://wa.me/64272147693"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:inspiredbeauty2024@gmail.com"><i class="fab fa-email"></i> Email</a>
+        
         <a href="https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/"><i class="fab fa-facebook"></i> Facebook</a>
         <a href="https://www.instagram.com/theinspired_beauty/"><i class="fab fa-instagram"></i> Instagram</a>
       </div>
@@ -254,11 +235,11 @@
     <footer>
       <b>
         <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;">
-            <i class="fas fa-tools"></i> By
+            <i class="fas fa-tools"></i>_By_ 
           </a>
       
-        <button onclick="saveContact()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">
-          <i class="fas fa-save"></i> <b>Save My Contact</b>
+        <button onclick="saveContact()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;"> 
+          <i class="fas fa-save"></i> <b> Save My Contact </b>
         </button>
         <a href="#" onclick="showModal()" style="color: #fff; text-decoration: none; margin-right: 20px;">
             <i class="fas fa-qrcode"></i>QR
@@ -296,7 +277,7 @@
           "FN:Rabina Maharjan\\n" +
           "ORG:Inspired Beauty\\n" +
           "TITLE:Owner / Beauty Therapist\\n" +
-          "TEL;TYPE=CELL,VOICE:+64272147693\\n" +
+          "TEL;TYPE=CELL,VOICE:+64275022825\\n" +
           "EMAIL;TYPE=PREF,INTERNET:inspiredbeauty2024@gmail.com\\n" +
           "ADR:Christchurch, New Zealand\\n" +
           "URL;TYPE=WORK:https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/\\n" +
