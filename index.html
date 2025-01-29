@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q95C5JEVQK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Q95C5JEVQK');
-    </script>
+   
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -274,26 +267,29 @@
       }
 
       function saveContact() {
-        var vCardData = "BEGIN:VCARD\\n" +
-          "VERSION:3.0\\n" +
-          "FN:Rabina Maharjan\\n" +
-          "ORG:Inspired Beauty\\n" +
-          "TITLE:Owner / Beauty Therapist\\n" +
-          "TEL;TYPE=CELL,VOICE:+64275022825\\n" +
-          "EMAIL;TYPE=PREF,INTERNET:inspiredbeauty2024@gmail.com\\n" +
-          "ADR:Christchurch, New Zealand\\n" +
-          "URL;TYPE=WORK:https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/\\n" +
-          "URL;TYPE=WORK:https://www.instagram.com/theinspired_beauty/\\n" +
-          "END:VCARD";
+    var vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Rabina Maharjan
+ORG:Inspired Beauty
+TITLE:Owner / Beauty Therapist
+TEL;TYPE=CELL,VOICE:+64275022825
+EMAIL;TYPE=PREF,INTERNET:inspiredbeauty2024@gmail.com
+ADR:Christchurch, New Zealand
+URL;TYPE=WORK:https://www.facebook.com/p/The-Inspired-Beauty-61558791268136/
+URL;TYPE=WORK:https://www.instagram.com/theinspired_beauty/
+END:VCARD`;
 
-        var blob = new Blob([vCardData], { type: "text/vcard" });
-        var link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = "RabinaMaharjan.vcf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+    var encodedVCard = encodeURIComponent(vCardData);
+    var dataUri = "data:text/vcard;charset=utf-8," + encodedVCard;
+    
+    var link = document.createElement('a');
+    link.href = dataUri;
+    link.download = "RabinaMaharjan.vcf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
     </script>
 </body>
 </html>
